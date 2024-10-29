@@ -1,5 +1,6 @@
 import java.time.Duration;
 import java.time.LocalDate;
+import java.util.Random;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -12,6 +13,7 @@ import org.testng.annotations.Test;
 public class MyTest {
 	WebDriver driver = new ChromeDriver();
 	String myWebsite = "https://www.almosafer.com/en";
+	Random rand = new Random();
 
 	@BeforeTest
 	public void mySetUp() {
@@ -92,5 +94,25 @@ public class MyTest {
 		String expectedReturn = Integer.toString(dayAfterTomorrow);
 
 		Assert.assertEquals(actualReturn, expectedReturn);
+	}
+
+	@Test(priority = 8)
+	public void randomChangeTheLanguage() {
+		String[] myWebsites = { "https://www.almosafer.com/en", "https://www.almosafer.com/ar" };
+		int randomWebsite = rand.nextInt(myWebsites.length);
+		driver.get(myWebsites[randomWebsite]);
+
+		if (driver.getCurrentUrl().equals("https://www.almosafer.com/ar")) {
+
+			String actualArabicWebsite = driver.findElement(By.tagName("html")).getAttribute("lang");
+			String expectedArabicWebsite = "ar";
+
+			Assert.assertEquals(actualArabicWebsite, expectedArabicWebsite);
+		} else {
+			String actualEnglishWebsite = driver.findElement(By.tagName("html")).getAttribute("lang");
+			String expectedEnglishWebsite = "en";
+
+			Assert.assertEquals(actualEnglishWebsite, expectedEnglishWebsite);
+		}
 	}
 }
