@@ -151,6 +151,6 @@ public class MyTest {
 		boolean actualResult = SearchResult.getText().contains("found") ||  SearchResult.getText().contains("مكان");
 		boolean expectedResult = true;
 		
-		Assert.assertEquals(actualResult, expectedResult)
+		Assert.assertEquals(actualResult, expectedResult);
 	}
 }
