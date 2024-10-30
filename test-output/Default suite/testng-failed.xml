@@ -5,13 +5,8 @@
     <classes>
       <class name="MyTest">
         <methods>
-          <include name="checkTheDefultCurrancySAR"/>
-          <include name="checkQtafLogoIsInTheFooter"/>
+          <include name="randomChangeTheLanguage"/>
           <include name="mySetUp"/>
-          <include name="checkDepatuerDate"/>
-          <include name="checkContactNumber"/>
-          <include name="checkHoteltabIsNotSelected"/>
-          <include name="checkTheEnglishLangugeDefult"/>
         </methods>
       </class> <!-- MyTest -->
     </classes>
